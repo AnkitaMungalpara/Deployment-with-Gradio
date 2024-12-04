@@ -1,0 +1,19 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python src/train.py experiment=brain_tumor_ex +trainer.log_every_n_steps=5
+    deps:
+    - path: configs/experiment/brain_tumor_ex.yaml
+      hash: md5
+      md5: e32def95b3b25c40056cf2fafeb4fbe4
+      size: 651
+    - path: src/train.py
+      hash: md5
+      md5: 69905eee39e011f2caafaabd0f2af7c4
+      size: 4373
+    outs:
+    - path: logs
+      hash: md5
+      md5: 1fd8cecbe8358508747dad954b9bb94f.dir
+      size: 33825
+      nfiles: 10

@@ -1,0 +1,31 @@
+# @package _global_
+
+# to execute this experiment run:
+# python train.py experiment=brain_tumor_ex
+
+defaults:
+  - override /data: brain_tumor  # Updated to use brain tumor data module
+  - override /model: timm_classify
+  - override /callbacks: default
+  - override /logger: default
+  - override /trainer: default
+
+seed: 42
+
+# model
+model:
+  _target_: src.models.timm_classifier.TimmClassifier
+  base_model: "tiny_vit_5m_224"  
+  num_classes: 4  
+  lr: 1e-3
+
+trainer:
+  _target_: lightning.Trainer
+  min_epochs: 1
+  max_epochs: 50
+
+early_stopping:
+  _target_: lightning.pytorch.callbacks.EarlyStopping
+  monitor: "val/acc"
+  patience: 10
+  mode: "max"

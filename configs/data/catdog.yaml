@@ -1,0 +1,9 @@
+_target_: src.datamodules.dogbreed.CatDogDataModule
+
+data_dir: ${oc.env:PROJECT_ROOT}/data/  
+num_workers: 4
+batch_size: 64
+train_split: 0.8
+val_split: 0.1
+test_split: 0.1
+pin_memory: True

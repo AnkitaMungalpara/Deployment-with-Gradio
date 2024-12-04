@@ -1,0 +1,9 @@
+stages:
+  train:
+    cmd: python src/train.py experiment=brain_tumor_ex +trainer.log_every_n_steps=5
+    deps:
+    - configs/experiment/brain_tumor_ex.yaml
+    - src/train.py
+    outs:
+    - logs:
+        cache: false

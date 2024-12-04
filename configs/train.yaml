@@ -1,0 +1,21 @@
+task_name: "train"
+
+tags: ["dev"]
+
+train: True
+
+test: True
+
+defaults:
+  - _self_
+  - data: brain_tumor
+  - model: timm_classify
+  - callbacks: default
+  - logger: null
+  - trainer: default
+  - paths: default
+  - hydra: default
+  - experiment: brain_tumor_ex
+
+aws:
+  bucket_name: "brain-tumor-gradio" 
